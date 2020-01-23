@@ -7,7 +7,7 @@ router.use('/guns',gunsRouter);
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('You have entered the Rose Pathway');
+	res.render('roses',{name: 'AwesomeGuy'})
 });
 
 module.exports = router;
