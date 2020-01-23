@@ -3,11 +3,14 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var bootstrap = require('pug-bootstrap');
 
+//include all route files here
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var blueRouter = require('./routes/Blue');
 var rosesRouter = require('./routes/roses');
+var thornsRouter = require('./routes/thorns');
 
 var app = express();
 
@@ -21,8 +24,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//encode which pathways our routes use here
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/thorns', thornsRouter)
 app.use('/blue', blueRouter)
 app.use('/gunsnroses', rosesRouter)
 
